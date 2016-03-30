@@ -26,44 +26,58 @@
     
     NSMutableString *romanNumber = [[NSMutableString alloc] init];
     
-    while (intNumber >1000)
+    while (intNumber >=1000)
     {
             [romanNumber appendString:@"M"];
             intNumber -= 1000;
     }
-    while (intNumber >500)
+    while (intNumber >=500)
     {
         [romanNumber appendString:@"D"];
         intNumber -= 500;
     }
-    while (intNumber >100)
+    while (intNumber >=100)
     {
         [romanNumber appendString:@"C"];
         intNumber -= 100;
     }
-    while (intNumber >50)
+    while (intNumber >=50)
     {
         [romanNumber appendString:@"L"];
         intNumber -= 50;
     }
-    while (intNumber >10)
+    while (intNumber >=10)
     {
-        [romanNumber appendString:@"X"];
+                [romanNumber appendString:@"X"];
         intNumber -= 10;
+        
     }
-    while (intNumber >5)
+    while (intNumber >=5)
     {
+        if (intNumber ==9) {
+            [romanNumber appendString:@"IX"];
+            intNumber -= 9;
+        }
+        else
+        {
+
         [romanNumber appendString:@"V"];
         intNumber -= 5;
+        }
     }
-    while (intNumber >1)
+    while (intNumber >=1)
     {
+        if (intNumber ==4) {
+            [romanNumber appendString:@"IV"];
+            intNumber -= 4;
+        }
+        else{
         [romanNumber appendString:@"I"];
         intNumber -= 1;
-        self.responseLabel.text =romanNumber;
+        }
 
     }
-
+self.responseLabel.text =romanNumber;
 }
 @end
 
